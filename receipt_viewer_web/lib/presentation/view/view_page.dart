@@ -28,7 +28,7 @@ class ViewPage extends StatelessWidget {
                         ready: (state) => ViewScreen(
                             receipt: state.receipt,
                             onViewerAction: (action) =>
-                                context.bloc<ViewBloc>().add(const ViewEvent.reportError()),
+                                context.bloc<ViewBloc>().add(ViewEvent.processAction(action)),
                         ),
                         invalid: (state) => ViewInvalidScreen(
                             onReportError: () =>
