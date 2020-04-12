@@ -1,0 +1,6 @@
+User-Agent: *
+Disallow: /terms_and_conditions.html
+Disallow: /privacy_policy.html
+Disallow: /viewer
+
+Sitemap: https://consentwallet.app/sitemap.xml

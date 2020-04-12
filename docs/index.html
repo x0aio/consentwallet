@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Consent Wallet</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://consentwallet.app" />
+    <meta property="og:site_name" content="Consent Wallet" />
+    <meta property="og:title" content="Consent Wallet :: Your consent receipts wallet" />
+    <meta property="og:description" content="Consent Wallet allows you to view and store your consent receipts" />
+    <meta name="description" content="Consent Wallet allows you to view and store your consent receipts" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="keywords" content="grpd, consent, receipt, kantara" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#7f8ec4">
+    <meta name="msapplication-TileImage" content="/assets/ms-icon-144x144.png">
+    <meta name="theme-color" content="#7f8ec4">
+
+    <style>
+@import url('https://fonts.googleapis.com/css?family=Cutive+Mono&display=swap');
+body {
+  background-color: #7f8ec4;
+  color: white;
+  font-family: 'Cutive Mono', monospace;
+  font-size: 16pt;
+  line-height: 1.5em;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  background-image: url("assets/logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 1em 1em 1em 2.5em;
+  padding-left: 4em;
+  flex-grow: 0;
+}
+
+body>section {
+  margin: 1em 3em;
+  text-align: center;
+}
+
+body>section a {
+  color: white;
+  font-weight: bold;
+}
+
+body>section a:hover {
+  background-color: white;
+  color: #7f8ec4;
+  font-weight: bold;
+}
+
+body>section#testTheApp {
+  text-align: center;
+  flex-grow: 2;
+}
+
+body>section#testTheApp h4 {
+  font-size: 1.3em;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.row>section {
+  flow-grow: 1;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+footer {
+  flex-grow: 0;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+footer ul {
+  margin: 0;
+  padding: 0;
+  flex-grow: 2;
+  text-align: center;
+}
+
+footer ul li {
+  display: inline;
+}
+
+footer ul li a {
+  display: inline-block;
+  line-height: 48px;
+  color: white;
+  padding: 0em 1em;
+  font-size: 0.9em;
+  text-decoration: underline;
+}
+
+footer ul li a img {
+  vertical-align: middle;
+  padding-right: 0.5em;
+}
+
+
+footer ul li::after{
+  content: '|';
+}
+
+footer ul li a:hover {
+  background-color: black;
+}
+
+footer ul li:last-child:after{
+  content: '';
+}
+
+footer h2 img {
+  width: 100px;
+}
+
+
+@media screen and (max-width:800px) {
+  body {
+    font-size: 0.9em;
+  }
+
+  header {
+    background-image: url("assets/logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 1em 1em 0.5em 1em;
+    padding-left: 3em;
+  }
+
+  header h1 {
+    font-size: 1.3em;
+  }
+
+  footer h2 img {
+    width: 100px;
+  }
+
+  body {
+    line-height: 1.3em;
+  }
+
+  body>section#intro h2 {
+    line-height: 1.5em;
+    font-size: 1.4em;
+  }
+
+  body>section {
+    margin: 0.5em 0.5em;
+  }
+
+  .row {
+    display: block;
+  }
+
+  body>section#testTheApp h4 {
+    margin: 0 0 1em 0;
+  }
+
+  footer ul li {
+    display: block;
+  }
+
+  footer ul li::after{
+    content: '';
+  }
+}
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Consent Wallet</h1>
+    </header>
+    <section id="intro">
+      <p>Consent Wallet allows you to view and store your consent receipts.</p>
+      <p>
+        <a href="https://kantarainitiative.org/download/7902/">Consent Receipt Specification</a> is a
+        <a href="https://kantarainitiative.org">Kantara Initiative</a> project
+      </p>
+      <p>
+        You can open you consent receipt file online using our <a href="https://consentwallet.app/viewer">web viewer</a>
+      </p>
+    </section>
+    <section>
+      <div class="row">
+        <section>
+          <h3>Free and open-source</h3>
+          <img src="assets/osi.png" style="width:4em" alt="Open source initiative">
+          <p>Consent Wallet is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License v3.0</a></p>
+        </section>
+        <section>
+          <h3>Your data secure</h3>
+          <img src="assets/lock.png" style="width:4em" alt="Secure">
+          <p>Consent Wallet no send your data to any server and not collect any information of the use.</p>
+        </section>
+      </div>
+    </section>
+    <section id="testTheApp">
+      <h4>Test the app</h4>
+      <div class="row">
+        <section>
+          <a href='https://play.google.com/store/apps/details?id=io.x0a.consent.consentwallet'><img alt='Google Play' width="155" src='assets/googleplay.png'/></a>
+        </section>
+        <section>
+          <a href='https://apps.apple.com/us/app/consent-wallet/id1504052171?ls=1'><img alt='App Store' width="155" src='assets/appstore.png'/></a>
+        </section>
+      </div>
+    </section>
+    <footer>
+      <ul>
+        <li><a href="/terms_and_conditions.html" title="Terms and condititions">Terms and condititions</a></li>
+        <li><a href="/privacy_policy.html" title="Privacy policy">Privacy policy</a></li>
+        <li><a href="mailto:hello@consentwallet.app" title="Contact mail"><img src="assets/email.png" style="width:1.5em" alt="Secure">Contact</a></li>
+        <li><a href="https://github.com/x0aio/consentwallet" title="Contact mail"><img src="assets/gitlab.png" style="width:1.5em">Gitlab</a></li>
+      </ul>
+      <h2><a href="https://x0a.io"><img src="./assets/by_x0A.png" alt="by XOA Desarrollo"></a></h2>
+    </footer>
+  </body>
+</html>
