@@ -69,7 +69,6 @@ body>section a {
 body>section a:hover {
   background-color: white;
   color: #7f8ec4;
-  font-weight: bold;
 }
 
 body>section#testTheApp {
@@ -77,7 +76,7 @@ body>section#testTheApp {
   flex-grow: 2;
 }
 
-body>section#testTheApp h4 {
+body>section h3 {
   font-size: 1.3em;
 }
 
@@ -90,6 +89,29 @@ body>section#testTheApp h4 {
   flow-grow: 1;
   padding-left: 1em;
   padding-right: 1em;
+}
+
+.contributors {
+  color: #7f8ec4;
+  background-color: white;
+  border-radius: 24px;
+  margin: 1em 2em;
+  padding: 1em 1em;
+}
+
+.contributors a {
+  display: inline-block;
+  border-bottom : 3px dotted white;
+  line-height: 1em;
+  padding : 0.2em;
+}
+
+.contributors a:hover  {
+  border-bottom : 3px dotted #7f8ec4;
+}
+
+.contributors img {
+  border-radius: 24px;
 }
 
 footer {
@@ -179,7 +201,7 @@ footer h2 img {
     display: block;
   }
 
-  body>section#testTheApp h4 {
+  body>section h3{
     margin: 0 0 1em 0;
   }
 
@@ -217,12 +239,12 @@ footer h2 img {
         <section>
           <h3>Your data secure</h3>
           <img src="assets/lock.png" style="width:4em" alt="Secure">
-          <p>Consent Wallet no send your data to any server and not collect any information of the use.</p>
+          <p>Consent Wallet don't send your data to any server and don't collect any information.</p>
         </section>
       </div>
     </section>
     <section id="testTheApp">
-      <h4>Test the app</h4>
+      <h3>Test the app</h3>
       <div class="row">
         <section>
           <a href='https://play.google.com/store/apps/details?id=io.x0a.consent.consentwallet'><img alt='Google Play' width="155" src='assets/googleplay.png'/></a>
@@ -232,8 +254,17 @@ footer h2 img {
         </section>
       </div>
     </section>
-    <section>
-      <h4>If you need help to implement the consent receipts in your management systems, you can contact <a href="https://x0a.io">x0A.io</a></h4>
+    <section class="contributors">
+      <h3>Contributors</h3>
+      <div class="row">
+        <section>
+          <a class="withimg" href='https://nolegaltech.com'><img alt='Nolegaltech' height="50" src='assets/nolegaltech.png'/></a>
+        </section>
+        <section>
+          <a class="withimg" href='https://x0A.io'><img alt='x0A' height="50" src='assets/x0A.png'/></a>
+        </section>
+      </div>
+      <p>If you need help to implement the consent receipts in your company, you can contact them</p>
     </section>
     <footer>
       <ul>
