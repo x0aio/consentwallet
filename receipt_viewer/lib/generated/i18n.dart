@@ -111,7 +111,7 @@ class $es extends S {
   @override
   String get url => "Sitio web";
   @override
-  String get purpose_consentType => "Tipo de ponsentimiento";
+  String get purpose_consentType => "Tipo de consentimiento";
   @override
   String get phone => "Teléfono";
   @override
