@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:receiptviewerweb/application/home/home_service.dart';
+import 'package:receiptviewerweb/application/home/home_navigator.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';
@@ -8,9 +8,9 @@ part 'home_bloc.freezed.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
-    final HomeService _service;
+    final HomeNavigator _navigator;
 
-    HomeBloc(this._service);
+    HomeBloc(this._navigator);
 
     @override
     HomeState get initialState => const HomeState.loading();
@@ -33,26 +33,26 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     }
 
     Stream<HomeState> _openConditions() async* {
-        _service.openUrl("https://consent.x0a.io/terms_and_conditions.html");
+        _navigator.openUrl("https://consentwallet.app/terms_and_conditions.html");
     }
 
     Stream<HomeState> _openPrivacyPolicy() async* {
-        _service.openUrl("https://consent.x0a.io/privacy_policy.html");
+        _navigator.openUrl("https://consentwallet.app/privacy_policy.html");
     }
 
     Stream<HomeState> _openX0AInfo() async* {
-        _service.openUrl("https://x0a.io");
+        _navigator.openUrl("https://x0a.io");
     }
 
     Stream<HomeState> _openConsentReceiptSpecification() async* {
-        _service.openUrl("https://kantarainitiative.org/download/7902/");
+        _navigator.openUrl("https://kantarainitiative.org/download/7902/");
     }
 
     Stream<HomeState> _goRoot() async* {
-        _service.goToRoot();
+        _navigator.goToRoot();
     }
 
     Stream<HomeState> _searchFile() async* {
-        await _service.openFile();
+        await _navigator.openFile();
     }
 }

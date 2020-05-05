@@ -1,4 +1,4 @@
-abstract class HomeService {
+abstract class HomeNavigator {
 
     void openUrl(String url);
 

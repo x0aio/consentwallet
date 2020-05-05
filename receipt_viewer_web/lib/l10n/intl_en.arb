@@ -1,4 +1,23 @@
 {
+  "timestamp_format": "yyyy-MM-dd HH:mm:ss",
+
+  "drawer_privacy_policy": "Privacy Policy",
+  "drawer_conditions": "Terms & Conditions",
+  "drawer_about": "Version ${version}",
+  "drawer_specification": "Consent Receipt Specification",
+
+  "home_title": "Consent Receipt Viewer",
+  "home_message_info": "You can view your consent receipts in this viewer",
+  "home_open_file": "Open a file...",
+  "home_warning_message": "Your information is safe, it will not leave your browser",
+
+  "view_title": "Consent Receipt",
+  "view_invalid_token": "Consent Receipt invalid",
+  "view_notify_error": "Notify error",
+
+  "error_email_subject": "I have found an error",
+  "error_email_body": "Hi, I need some help with this error: {error}\n\ntoken: {token}",
+
   "piiPrincipalId": "Personal identifier",
   "consentReceiptID": "Receipt Number",
   "language": "Language",
@@ -17,8 +36,8 @@
   "phone": "Phone",
   "email": "Email",
   "service_title": "Service",
-  "address_postal_code_and_locality": "${postalCode} ${locality}",
-  "address_region_and_country": "${region} ${country}",
+  "address_postal_code_and_locality": "{postalCode} {locality}",
+  "address_region_and_country": "{region} {country}",
   "purpose": "Purpose",
   "purpose_piiCategory": "Personal information categories",
   "purpose_purposeCategory": "Purpose categories",

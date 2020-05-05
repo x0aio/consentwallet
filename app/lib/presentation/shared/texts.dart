@@ -1,7 +1,6 @@
-import 'package:content_wallet/generated/i18n.dart';
-import 'package:get/get.dart';
+import 'package:content_wallet/generated/l10n.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-S texts() => S.of(Get.key.currentContext);
-
-String format(DateTime dateTime) => DateFormat(texts().timestamp_format).format(dateTime);
+String format(BuildContext context, DateTime dateTime) =>
+    DateFormat(S.of(context).timestamp_format).format(dateTime);

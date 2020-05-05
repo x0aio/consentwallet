@@ -1,11 +1,17 @@
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html';
 
-import 'package:get/get.dart';
-import 'package:receiptviewerweb/application/home/home_service.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:receiptviewerweb/application/home/home_navigator.dart';
+import 'package:receiptviewerweb/presentation/view/view_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class HomeServiceImpl extends HomeService {
+class HomeNavigatorImpl extends HomeNavigator {
+
+    final BuildContext _context;
+
+    HomeNavigatorImpl(this._context);
 
     @override
     void goToRoot() {
@@ -28,9 +34,9 @@ class HomeServiceImpl extends HomeService {
             final reader = FileReader();
 
             reader.onLoadEnd.listen((event) {
-                Get.toNamed("view", arguments: {
-                    "token": reader.result as String
-                });
+                Navigator.of(_context).push(MaterialPageRoute(
+                    builder: (context) => ViewPage(token: reader.result as String)
+                ));
             });
 
             reader.readAsText(file);

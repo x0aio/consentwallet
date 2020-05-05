@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:receiptviewer/generated/i18n.dart';
 import 'package:receiptviewer/receiptviewer.dart';
 import 'package:receiptviewer/src/presentation/widgets/controller_card.dart';
 import 'package:receiptviewer/src/presentation/widgets/field.dart';
 import 'package:receiptviewer/src/presentation/widgets/service_card.dart';
+import 'package:receiptviewer/src/presentation/widgets/url_validation.dart';
 
 typedef ReceiptViewerActionCallback = Function(ReceiptViewerAction action);
 
 class ReceiptViewer extends StatelessWidget {
 
+    final ReceiptViewerMessages messages;
     final ConsentReceipt receipt;
     final String timestampFormat;
     final ReceiptViewerActionCallback onAction;
 
     const ReceiptViewer({
+        @required this.messages,
         @required this.receipt,
         @required this.timestampFormat,
         @required this.onAction
@@ -22,52 +24,46 @@ class ReceiptViewer extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
-        final texts = S.of(context);
         final consentTimestamp = DateTime.fromMillisecondsSinceEpoch(receipt.consentTimestamp * 1000);
 
         return ListView(
             children: [
                 Field(
-                    name: texts.piiPrincipalId,
+                    name: messages.piiPrincipalId,
                     value: receipt.piiPrincipalId
                 ),
                 Field(
-                    name: texts.consentReceiptID,
+                    name: messages.consentReceiptID,
                     value: receipt.consentReceiptID
                 ),
                 Field(
-                    name: texts.jurisdiction,
+                    name: messages.jurisdiction,
                     value: receipt.jurisdiction
                 ),
                 Field(
-                    name: texts.language,
+                    name: messages.language,
                     value: receipt.language
                 ),
                 Field(
-                    name: texts.consentTimestamp,
+                    name: messages.consentTimestamp,
                     value: DateFormat(timestampFormat).format(consentTimestamp)
                 ),
                 Field(
-                    name: texts.policyUrl,
+                    name: messages.policyUrl,
                     value: receipt.policyUrl,
-                    trailing: IconButton(
-                        icon: const Icon(Icons.public),
-                        onPressed: () {
-                            onAction(const ReceiptViewerAction.goToPrivacyPolicy());
-                        },
-                    ),
+                    trailing: _policyUrlButton(receipt.policyUrl),
                 ),
                 if (receipt.spiCat != null && receipt.spiCat.isNotEmpty)
                     Field(
-                        name: texts.spiCat,
+                        name: messages.spiCat,
                         value: receipt.spiCat
                     ),
                 for (final controller in receipt.controllers)
-                    ControllerCard(controller,
+                    ControllerCard(controller, messages,
                         onAction: onAction,
                     ),
                 for (final service in receipt.services)
-                    ServiceCard(service,
+                    ServiceCard(service, messages,
                         onAction: onAction,
                     ),
                 const SizedBox(
@@ -75,5 +71,18 @@ class ReceiptViewer extends StatelessWidget {
                 )
             ],
         );
+    }
+
+    Widget _policyUrlButton(String url) {
+        if (isUrlValid(url)) {
+            return IconButton(
+                icon: const Icon(Icons.public),
+                onPressed: () {
+                    onAction(const ReceiptViewerAction.goToPrivacyPolicy());
+                },
+            );
+        }
+
+        return null;
     }
 }

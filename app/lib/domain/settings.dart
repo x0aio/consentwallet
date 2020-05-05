@@ -7,4 +7,6 @@ abstract class Settings with _$Settings {
         @required bool firstTime,
         @required List<int> encryptionKey
     }) = _Settings;
+
+    factory Settings.fromJson(Map<String, dynamic> json) => _$SettingsFromJson(json);
 }

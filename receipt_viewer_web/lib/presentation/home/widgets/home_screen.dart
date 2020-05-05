@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:receiptviewerweb/generated/i18n.dart';
+import 'package:receiptviewerweb/generated/l10n.dart';
 
 class HomeScreen extends StatelessWidget {
 

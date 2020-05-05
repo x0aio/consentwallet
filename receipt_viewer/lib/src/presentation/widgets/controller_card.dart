@@ -1,30 +1,29 @@
 
 import 'package:flutter/material.dart';
-import 'package:receiptviewer/generated/i18n.dart';
 import 'package:receiptviewer/receiptviewer.dart';
 import 'package:receiptviewer/src/presentation/widgets/address_field.dart';
 import 'package:receiptviewer/src/presentation/widgets/field.dart';
+import 'package:receiptviewer/src/presentation/widgets/url_validation.dart';
 import 'package:receiptviewer/src/presentation/widgets/utils.dart';
 
 class ControllerCard extends StatelessWidget {
 
+    final ReceiptViewerMessages _messages;
     final PiiController _controller;
     final ReceiptViewerActionCallback onAction;
 
-    const ControllerCard(this._controller, {
+    const ControllerCard(this._controller, this._messages, {
         @required this.onAction
     });
 
     @override
     Widget build(BuildContext context) {
-        final texts = S.of(context);
-
         return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
                 Divider(color: Colors.white),
                 Field(
-                    name: texts.piiController,
+                    name: _messages.piiController,
                     value: _controller.piiController,
                     trailing: IconButton(
                         icon: Icon(Icons.remove_red_eye),
@@ -41,23 +40,21 @@ class ControllerCard extends StatelessWidget {
     }
 
     Widget _buildControllerSheet(BuildContext context) {
-        final texts = S.of(context);
-
         return Padding(
             padding: const EdgeInsets.only(left: 8.0),
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                     Field(
-                        name: texts.piiController,
+                        name: _messages.piiController,
                         value: _controller.piiController
                     ),
                     Field(
-                        name: texts.org,
+                        name: _messages.org,
                         value: _controller.org
                     ),
                     Field(
-                        name: texts.contact,
+                        name: _messages.contact,
                         value: _controller.contact,
                         /* TODO
                         trailing: IconButton(
@@ -67,9 +64,9 @@ class ControllerCard extends StatelessWidget {
                             },
                         ),*/
                     ),
-                    if (_controller.url != null)
+                    if (isUrlValid(_controller.url))
                         Field(
-                            name: texts.url,
+                            name: _messages.url,
                             value: _controller.url,
                             trailing: IconButton(
                                 icon: const Icon(Icons.public),
@@ -79,11 +76,11 @@ class ControllerCard extends StatelessWidget {
                             ),
                         ),
                     Field(
-                        name: texts.onBehalf,
-                        value: _controller.onBehalf ? texts.onBehalf_yes : texts.onBehalf_no
+                        name: _messages.onBehalf,
+                        value: _controller.onBehalf ? _messages.onBehalf_yes : _messages.onBehalf_no
                     ),
                     Field(
-                        name: texts.phone,
+                        name: _messages.phone,
                         value: _controller.phone,
                         trailing: IconButton(
                             icon: const Icon(Icons.call),
@@ -93,7 +90,7 @@ class ControllerCard extends StatelessWidget {
                         ),
                     ),
                     Field(
-                        name: texts.email,
+                        name: _messages.email,
                         value: _controller.email,
                         trailing: IconButton(
                             icon: const Icon(Icons.email),
@@ -102,8 +99,8 @@ class ControllerCard extends StatelessWidget {
                             },
                         ),
                     ),
-                    AddressField(
-                        name: texts.address,
+                    AddressField(_messages,
+                        name: _messages.address,
                         address: _controller.address
                     ),
                 ],

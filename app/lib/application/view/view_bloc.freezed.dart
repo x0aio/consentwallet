@@ -827,20 +827,14 @@ mixin _$ViewState {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result loading(),
-    @required
-        Result ready(@required ConsentReceipt receipt, @required String token,
-            @required bool isSaved),
-    @required
-        Result invalid(@required String token, @required String error,
-            @required StackTrace stackTrace),
+    @required Result ready(ConsentReceipt receipt, String token, bool isSaved),
+    @required Result invalid(String token, String error, StackTrace stackTrace),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result loading(),
-    Result ready(@required ConsentReceipt receipt, @required String token,
-        @required bool isSaved),
-    Result invalid(@required String token, @required String error,
-        @required StackTrace stackTrace),
+    Result ready(ConsentReceipt receipt, String token, bool isSaved),
+    Result invalid(String token, String error, StackTrace stackTrace),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -905,12 +899,8 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result loading(),
-    @required
-        Result ready(@required ConsentReceipt receipt, @required String token,
-            @required bool isSaved),
-    @required
-        Result invalid(@required String token, @required String error,
-            @required StackTrace stackTrace),
+    @required Result ready(ConsentReceipt receipt, String token, bool isSaved),
+    @required Result invalid(String token, String error, StackTrace stackTrace),
   }) {
     assert(loading != null);
     assert(ready != null);
@@ -922,10 +912,8 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result loading(),
-    Result ready(@required ConsentReceipt receipt, @required String token,
-        @required bool isSaved),
-    Result invalid(@required String token, @required String error,
-        @required StackTrace stackTrace),
+    Result ready(ConsentReceipt receipt, String token, bool isSaved),
+    Result invalid(String token, String error, StackTrace stackTrace),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1055,12 +1043,8 @@ class _$_Ready implements _Ready {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result loading(),
-    @required
-        Result ready(@required ConsentReceipt receipt, @required String token,
-            @required bool isSaved),
-    @required
-        Result invalid(@required String token, @required String error,
-            @required StackTrace stackTrace),
+    @required Result ready(ConsentReceipt receipt, String token, bool isSaved),
+    @required Result invalid(String token, String error, StackTrace stackTrace),
   }) {
     assert(loading != null);
     assert(ready != null);
@@ -1072,10 +1056,8 @@ class _$_Ready implements _Ready {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result loading(),
-    Result ready(@required ConsentReceipt receipt, @required String token,
-        @required bool isSaved),
-    Result invalid(@required String token, @required String error,
-        @required StackTrace stackTrace),
+    Result ready(ConsentReceipt receipt, String token, bool isSaved),
+    Result invalid(String token, String error, StackTrace stackTrace),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1202,12 +1184,8 @@ class _$_Invalid implements _Invalid {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result loading(),
-    @required
-        Result ready(@required ConsentReceipt receipt, @required String token,
-            @required bool isSaved),
-    @required
-        Result invalid(@required String token, @required String error,
-            @required StackTrace stackTrace),
+    @required Result ready(ConsentReceipt receipt, String token, bool isSaved),
+    @required Result invalid(String token, String error, StackTrace stackTrace),
   }) {
     assert(loading != null);
     assert(ready != null);
@@ -1219,10 +1197,8 @@ class _$_Invalid implements _Invalid {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result loading(),
-    Result ready(@required ConsentReceipt receipt, @required String token,
-        @required bool isSaved),
-    Result invalid(@required String token, @required String error,
-        @required StackTrace stackTrace),
+    Result ready(ConsentReceipt receipt, String token, bool isSaved),
+    Result invalid(String token, String error, StackTrace stackTrace),
     @required Result orElse(),
   }) {
     assert(orElse != null);

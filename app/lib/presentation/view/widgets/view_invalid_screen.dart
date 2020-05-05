@@ -1,4 +1,4 @@
-import 'package:content_wallet/generated/i18n.dart';
+import 'package:content_wallet/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class ViewInvalidScreen extends StatelessWidget {

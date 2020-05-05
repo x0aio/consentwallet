@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-abstract class ViewService {
+abstract class ViewNavigator {
 
     Future<bool> confirmDelete();
 

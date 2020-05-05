@@ -1,4 +1,5 @@
 import 'package:content_wallet/domain/domain.dart';
+import 'package:content_wallet/generated/l10n.dart';
 import 'package:content_wallet/presentation/shared/texts.dart';
 import 'package:flutter/material.dart';
 
@@ -14,9 +15,11 @@ class StoredTokenWidget extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
+        final consentTimestamp = format(context, token.consentTimestamp);
+
         return ListTile(
             title: Text(token.principalController),
-            subtitle: Text(texts().home_stored_token_consentTimestamp(format(token.consentTimestamp))),
+            subtitle: Text(S.of(context).home_stored_token_consentTimestamp(consentTimestamp)),
             trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[

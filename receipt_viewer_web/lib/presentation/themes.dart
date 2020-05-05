@@ -6,7 +6,7 @@ const _lightPrimaryColor = Color(0xFF7f8ec4);
 const _lightSecondaryColor = Color(0xFF506193);
 const _iconColor = Colors.white;
 
-final ThemeData lightTheme = ThemeData(
+final ThemeData theme = ThemeData(
     scaffoldBackgroundColor: _lightPrimaryColor,
     primaryColor: _lightPrimaryColor,
     accentColor: _lightSecondaryColor,

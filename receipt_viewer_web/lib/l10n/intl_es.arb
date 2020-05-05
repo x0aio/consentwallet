@@ -1,4 +1,23 @@
 {
+  "timestamp_format": "yyyy-MM-dd HH:mm:ss",
+
+  "drawer_privacy_policy": "Política de privacidad",
+  "drawer_conditions": "Terminos y condiciones",
+  "drawer_about": "Versión ${version}",
+  "drawer_specification": "Consent Receipt Specification",
+
+  "home_title": "Consent Receipt Viewer",
+  "home_message_info": "Puedes ver tus recibos de consentimiento en este visor",
+  "home_open_file": "Abrir un fichero...",
+  "home_warning_message": "Tu información esta seguro, no saldrá de tu navegador",
+
+  "view_title": "Recibo de consentimiento",
+  "view_invalid_token": "Recibo de consentimiento inválido",
+  "view_notify_error": "Notifica el error",
+
+  "error_email_subject": "He encontrado un error",
+  "error_email_body": "Hola, necesito ayuda con este error: {error}\n\ntoken: {token}",
+
   "piiPrincipalId": "Identificador personal",
   "consentReceiptID": "Número de recibo",
   "language": "Idioma",

@@ -162,6 +162,24 @@ footer h2 img {
   width: 100px;
 }
 
+h4 {
+  margin: 0 auto;
+  max-width: 20em;
+  padding-top: 1em;
+}
+
+a.iconButton {
+  border: 3px solid white;
+  border-radius: 8px;
+  display: inline-block;
+  padding: 0.5em;
+  box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.35);
+}
+
+a.iconButton:hover {
+  background-color: black;
+}
+
 
 @media screen and (max-width:800px) {
   body {
@@ -232,6 +250,12 @@ footer h2 img {
       <p>
         You can open you consent receipt file online using our <a href="https://consentwallet.app/viewer">web viewer</a>
       </p>
+    </section>
+    <section>
+      <a href="https://consentwallet.app/test.consent" class="iconButton" type="application/consent"> <img src="assets/download.png" style="width:4em" alt="Download a consent receipt"></a>
+      <h4>
+        Download a consent receipt and explore its possibilities
+      </h4>
     </section>
     <section>
       <div class="row">

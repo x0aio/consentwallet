@@ -5,39 +5,42 @@ import 'package:hive/hive.dart';
 
 class HiveStoredTokenRepository extends StoredTokenRepository {
 
+
     static const boxName = "documents";
 
-    final Box _box;
+    final Future<Box> _box;
 
     HiveStoredTokenRepository(this._box);
 
-    static Future<HiveStoredTokenRepository> of(List<int> encryptionKey) async {
+    factory HiveStoredTokenRepository.of(Future<List<int>> encryptionKey) {
         Hive.registerAdapter(StoredTokenAdapter());
 
-        final box = await Hive.openBox(HiveStoredTokenRepository.boxName,
-            encryptionKey: encryptionKey
+        return HiveStoredTokenRepository(_createBox(encryptionKey));
+    }
+
+    static Future<Box> _createBox(Future<List<int>> encryptionKey) async {
+        return Hive.openBox(HiveStoredTokenRepository.boxName,
+            encryptionKey: await encryptionKey
         );
-
-        return HiveStoredTokenRepository(box);
     }
 
     @override
-    List<StoredToken> ask() {
-        return _box.values.toList().cast<StoredToken>();
+    Future<List<StoredToken>> ask() async {
+        return (await _box).values.toList().cast<StoredToken>();
     }
 
     @override
-    bool contains(String key) {
-        return _box.containsKey(key);
+    Future<bool> contains(String key) async {
+        return (await _box).containsKey(key);
     }
 
     @override
-    void add(StoredToken token) {
-        _box.put(token.key, token);
+    Future<void> add(StoredToken token) async {
+        (await _box).put(token.key, token);
     }
 
     @override
-    void delete(String key) {
-        _box.delete(key);
+    Future<void> delete(String key) async {
+        (await _box).delete(key);
     }
 }

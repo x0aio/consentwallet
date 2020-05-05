@@ -1,5 +1,6 @@
+import 'package:content_wallet/presentation/view/widgets/receipt_viewer_messages_impl.dart';
 import 'package:flutter/material.dart';
-import 'package:content_wallet/generated/i18n.dart' as local;
+import 'package:content_wallet/generated/l10n.dart';
 import 'package:receiptviewer/receiptviewer.dart';
 
 class ViewScreen extends StatelessWidget {
@@ -22,7 +23,7 @@ class ViewScreen extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
-        final texts = local.S.of(context);
+        final texts = S.of(context);
 
         return Scaffold(
             appBar: AppBar(
@@ -44,6 +45,7 @@ class ViewScreen extends StatelessWidget {
             body: Padding(
                 padding: const EdgeInsets.all(8),
                 child: ReceiptViewer(
+                    messages: ReceiptViewerMessagesImpl(context),
                     receipt: receipt,
                     timestampFormat: texts.timestamp_format,
                     onAction: onViewerAction

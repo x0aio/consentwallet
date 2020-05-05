@@ -129,12 +129,18 @@ class __$InitCopyWithImpl<$Res> extends _$HomeEventCopyWithImpl<$Res>
   _Init get _value => super._value as _Init;
 }
 
-class _$_Init implements _Init {
+class _$_Init with DiagnosticableTreeMixin implements _Init {
   const _$_Init();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.init()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'HomeEvent.init'));
   }
 
   @override
@@ -253,12 +259,18 @@ class __$SearchCopyWithImpl<$Res> extends _$HomeEventCopyWithImpl<$Res>
   _Search get _value => super._value as _Search;
 }
 
-class _$_Search implements _Search {
+class _$_Search with DiagnosticableTreeMixin implements _Search {
   const _$_Search();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.search()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'HomeEvent.search'));
   }
 
   @override
@@ -377,12 +389,18 @@ class __$X0AInfoCopyWithImpl<$Res> extends _$HomeEventCopyWithImpl<$Res>
   _X0AInfo get _value => super._value as _X0AInfo;
 }
 
-class _$_X0AInfo implements _X0AInfo {
+class _$_X0AInfo with DiagnosticableTreeMixin implements _X0AInfo {
   const _$_X0AInfo();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.x0AInfo()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'HomeEvent.x0AInfo'));
   }
 
   @override
@@ -501,12 +519,18 @@ class __$OpenFileCopyWithImpl<$Res> extends _$HomeEventCopyWithImpl<$Res>
   _OpenFile get _value => super._value as _OpenFile;
 }
 
-class _$_OpenFile implements _OpenFile {
+class _$_OpenFile with DiagnosticableTreeMixin implements _OpenFile {
   const _$_OpenFile();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.openFile()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'HomeEvent.openFile'));
   }
 
   @override
@@ -628,12 +652,20 @@ class __$OpenPrivacyPolicyCopyWithImpl<$Res>
   _OpenPrivacyPolicy get _value => super._value as _OpenPrivacyPolicy;
 }
 
-class _$_OpenPrivacyPolicy implements _OpenPrivacyPolicy {
+class _$_OpenPrivacyPolicy
+    with DiagnosticableTreeMixin
+    implements _OpenPrivacyPolicy {
   const _$_OpenPrivacyPolicy();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.openPrivacyPolicy()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'HomeEvent.openPrivacyPolicy'));
   }
 
   @override
@@ -754,12 +786,20 @@ class __$OpenConditionsCopyWithImpl<$Res> extends _$HomeEventCopyWithImpl<$Res>
   _OpenConditions get _value => super._value as _OpenConditions;
 }
 
-class _$_OpenConditions implements _OpenConditions {
+class _$_OpenConditions
+    with DiagnosticableTreeMixin
+    implements _OpenConditions {
   const _$_OpenConditions();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.openConditions()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'HomeEvent.openConditions'));
   }
 
   @override
@@ -885,12 +925,21 @@ class __$OpenConsentReceiptSpecificationCopyWithImpl<$Res>
 }
 
 class _$_OpenConsentReceiptSpecification
+    with DiagnosticableTreeMixin
     implements _OpenConsentReceiptSpecification {
   const _$_OpenConsentReceiptSpecification();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.openConsentReceiptSpecification()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'HomeEvent.openConsentReceiptSpecification'));
   }
 
   @override
@@ -1034,15 +1083,23 @@ class __$OpenTokenCopyWithImpl<$Res> extends _$HomeEventCopyWithImpl<$Res>
   }
 }
 
-class _$_OpenToken implements _OpenToken {
+class _$_OpenToken with DiagnosticableTreeMixin implements _OpenToken {
   const _$_OpenToken(this.token) : assert(token != null);
 
   @override
   final StoredToken token;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.openToken(token: $token)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeEvent.openToken'))
+      ..add(DiagnosticsProperty('token', token));
   }
 
   @override
@@ -1227,12 +1284,18 @@ class __$LoadingCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
   _Loading get _value => super._value as _Loading;
 }
 
-class _$_Loading implements _Loading {
+class _$_Loading with DiagnosticableTreeMixin implements _Loading {
   const _$_Loading();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeState.loading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'HomeState.loading'));
   }
 
   @override
@@ -1324,15 +1387,23 @@ class __$ReadyCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
   }
 }
 
-class _$_Ready implements _Ready {
+class _$_Ready with DiagnosticableTreeMixin implements _Ready {
   const _$_Ready(this.tokensStored) : assert(tokensStored != null);
 
   @override
   final List<StoredToken> tokensStored;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeState.ready(tokensStored: $tokensStored)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeState.ready'))
+      ..add(DiagnosticsProperty('tokensStored', tokensStored));
   }
 
   @override

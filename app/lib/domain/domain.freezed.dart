@@ -230,6 +230,10 @@ abstract class _StoredToken implements StoredToken {
   _$StoredTokenCopyWith<_StoredToken> get copyWith;
 }
 
+Settings _$SettingsFromJson(Map<String, dynamic> json) {
+  return _Settings.fromJson(json);
+}
+
 class _$SettingsTearOff {
   const _$SettingsTearOff();
 
@@ -249,6 +253,7 @@ mixin _$Settings {
   bool get firstTime;
   List<int> get encryptionKey;
 
+  Map<String, dynamic> toJson();
   $SettingsCopyWith<Settings> get copyWith;
 }
 
@@ -308,10 +313,14 @@ class __$SettingsCopyWithImpl<$Res> extends _$SettingsCopyWithImpl<$Res>
   }
 }
 
+@JsonSerializable()
 class _$_Settings implements _Settings {
   const _$_Settings({@required this.firstTime, @required this.encryptionKey})
       : assert(firstTime != null),
         assert(encryptionKey != null);
+
+  factory _$_Settings.fromJson(Map<String, dynamic> json) =>
+      _$_$_SettingsFromJson(json);
 
   @override
   final bool firstTime;
@@ -344,12 +353,19 @@ class _$_Settings implements _Settings {
   @override
   _$SettingsCopyWith<_Settings> get copyWith =>
       __$SettingsCopyWithImpl<_Settings>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_SettingsToJson(this);
+  }
 }
 
 abstract class _Settings implements Settings {
   const factory _Settings(
       {@required bool firstTime,
       @required List<int> encryptionKey}) = _$_Settings;
+
+  factory _Settings.fromJson(Map<String, dynamic> json) = _$_Settings.fromJson;
 
   @override
   bool get firstTime;

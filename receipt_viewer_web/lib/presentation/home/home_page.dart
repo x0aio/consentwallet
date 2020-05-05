@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:receiptviewerweb/application/home/home_bloc.dart';
-import 'package:receiptviewerweb/presentation/home/home_service_impl.dart';
+import 'package:receiptviewerweb/presentation/home/home_navigator_impl.dart';
 import 'package:receiptviewerweb/presentation/home/widgets/home_drawer.dart';
 import 'package:receiptviewerweb/presentation/home/widgets/home_loading_screen.dart';
 import 'package:receiptviewerweb/presentation/home/widgets/home_screen.dart';
@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
     Widget build(BuildContext context) {
         return BlocProvider<HomeBloc>(
             create: (context) =>
-                HomeBloc(HomeServiceImpl())..add(const HomeEvent.init()),
+                HomeBloc(HomeNavigatorImpl(context))..add(const HomeEvent.init()),
             child: BlocBuilder<HomeBloc, HomeState>(
                 builder: (context, state) {
                     return state.map(

@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:receiptviewer/receiptviewer.dart';
-import 'package:receiptviewerweb/application/view/view_service.dart';
+import 'package:receiptviewerweb/application/view/view_navigator.dart';
 
 part 'view_event.dart';
 part 'view_bloc.freezed.dart';
@@ -9,10 +9,10 @@ part 'view_state.dart';
 
 class ViewBloc extends Bloc<ViewEvent, ViewState> {
 
-    final ViewService _service;
+    final ViewNavigator _navigator;
     final String token;
 
-    ViewBloc(this._service, { this.token });
+    ViewBloc(this._navigator, { this.token });
 
     @override
     ViewState get initialState => const ViewState.loading();
@@ -46,7 +46,7 @@ class ViewBloc extends Bloc<ViewEvent, ViewState> {
     Stream<ViewState> _reportError() async* {
         state.maybeMap(
             invalid: (state) async {
-                _service.reportErrorAndBack(
+                _navigator.reportErrorAndBack(
                     error: state.error,
                     token: state.token,
                     stackTrace: state.stackTrace
@@ -63,22 +63,22 @@ class ViewBloc extends Bloc<ViewEvent, ViewState> {
             ready: (state) async {
                 await action.when(
                     sendEmail: (controller) =>
-                        _service.openUrl("mailto:${controller.email}")
+                        _navigator.openUrl("mailto:${controller.email}")
                     ,
                     call: (controller) =>
-                        _service.openUrl("tel:${controller.phone}")
+                        _navigator.openUrl("tel:${controller.phone}")
                     ,
                     addContact: (controller) =>
                         Future.value(null)
                     ,
                     visitWeb: (controller) =>
-                        _service.openUrl(controller.url)
+                        _navigator.openUrl(controller.url)
                     ,
                     goToTermination: (purpose) =>
-                        _service.openUrl(purpose.termination)
+                        _navigator.openUrl(purpose.termination)
                     ,
                     goToPrivacyPolicy: () =>
-                        _service.openUrl(state.receipt.policyUrl)
+                        _navigator.openUrl(state.receipt.policyUrl)
                     ,
                 );
             },

@@ -1,7 +1,7 @@
 import 'package:content_wallet/domain/stored_token_repository.dart';
+import 'package:content_wallet/presentation/view/view_navigator_impl.dart';
 import 'package:content_wallet/presentation/view/widgets/view_invalid_screen.dart';
 import 'package:content_wallet/presentation/view/widgets/view_loading_screen.dart';
-import 'package:content_wallet/presentation/view/view_service_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:content_wallet/application/view/view_bloc.dart';
@@ -28,7 +28,7 @@ class _ViewPageState extends State<ViewPage> {
         super.initState();
         _bloc = ViewBloc(
             RepositoryProvider.of<StoredTokenRepository>(context),
-            ViewServiceImpl(),
+            ViewNavigatorImpl(context),
             token: widget.token
         );
         _bloc.add(const ViewEvent.init());

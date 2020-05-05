@@ -1,4 +1,4 @@
-import 'package:content_wallet/application/view/view_service.dart';
+import 'package:content_wallet/application/view/view_navigator.dart';
 import 'package:content_wallet/domain/domain.dart';
 import 'package:content_wallet/domain/stored_token_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,11 +11,11 @@ part 'view_state.dart';
 
 class ViewBloc extends Bloc<ViewEvent, ViewState> {
 
-    final ViewService _service;
+    final ViewNavigator _navigator;
     final StoredTokenRepository _repository;
     final String token;
 
-    ViewBloc(this._repository, this._service, { this.token });
+    ViewBloc(this._repository, this._navigator, { this.token });
 
     @override
     ViewState get initialState => const ViewState.loading();
@@ -38,7 +38,7 @@ class ViewBloc extends Bloc<ViewEvent, ViewState> {
 
             yield ViewState.ready(
                 token: token,
-                isSaved: _repository.contains(receipt.consentReceiptID),
+                isSaved: await _repository.contains(receipt.consentReceiptID),
                 receipt: receipt
             );
         } catch (e, stackTrace) {
@@ -53,13 +53,13 @@ class ViewBloc extends Bloc<ViewEvent, ViewState> {
     Stream<ViewState> _reportError() async* {
         state.maybeMap(
             invalid: (state) async {
-                await _service.reportError(
+                await _navigator.reportError(
                     message: state.error,
                     token: state.token,
                     stackTrace: state.stackTrace
                 );
 
-                _service.backToRoot();
+                _navigator.backToRoot();
             },
             orElse: () {
                 throw "Invalid state for reportError $state";
@@ -80,7 +80,7 @@ class ViewBloc extends Bloc<ViewEvent, ViewState> {
                     isDemo: false,
                     savedAt: DateTime.now()
                 ));
-                _service.backToRoot();
+                _navigator.backToRoot();
             },
             orElse: () {
                 throw "Invalid state for sendByMail $state";
@@ -91,9 +91,9 @@ class ViewBloc extends Bloc<ViewEvent, ViewState> {
     Stream<ViewState> _delete() async* {
         yield* state.maybeMap(
             ready: (state) async* {
-                if (await _service.confirmDelete()) {
+                if (await _navigator.confirmDelete()) {
                     _repository.delete(state.receipt.consentReceiptID);
-                    _service.backToRoot();
+                    _navigator.backToRoot();
                 } else {
                     yield state;
                 }
@@ -107,7 +107,7 @@ class ViewBloc extends Bloc<ViewEvent, ViewState> {
     Stream<ViewState> _share() async* {
         state.maybeMap(
             ready: (state) async {
-                await _service.share(
+                await _navigator.share(
                     id: state.receipt.consentReceiptID,
                     token: state.token
                 );
@@ -123,22 +123,22 @@ class ViewBloc extends Bloc<ViewEvent, ViewState> {
             ready: (state) async {
                 await action.when(
                     sendEmail: (controller) =>
-                        _service.openUrl("mailto:${controller.email}")
+                        _navigator.openUrl("mailto:${controller.email}")
                     ,
                     call: (controller) =>
-                        _service.openUrl("tel:${controller.phone}")
+                        _navigator.openUrl("tel:${controller.phone}")
                     ,
                     addContact: (controller) =>
                         Future.value(null)
                     ,
                     visitWeb: (controller) =>
-                        _service.openUrl(controller.url)
+                        _navigator.openUrl(controller.url)
                     ,
                     goToTermination: (purpose) =>
-                        _service.openUrl(purpose.termination)
+                        _navigator.openUrl(purpose.termination)
                     ,
                     goToPrivacyPolicy: () =>
-                        _service.openUrl(state.receipt.policyUrl)
+                        _navigator.openUrl(state.receipt.policyUrl)
                     ,
                 );
             },

@@ -1,7 +1,7 @@
 import 'package:content_wallet/domain/domain.dart';
 import 'package:content_wallet/presentation/home/widgets/stored_token_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:content_wallet/generated/i18n.dart';
+import 'package:content_wallet/generated/l10n.dart';
 
 class HomeScreen extends StatelessWidget {
 

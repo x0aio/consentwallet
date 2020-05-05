@@ -1,5 +1,6 @@
+import 'package:content_wallet/domain/settings_repository.dart';
 import 'package:content_wallet/domain/stored_token_repository.dart';
-import 'package:content_wallet/presentation/home/home_service_impl.dart';
+import 'package:content_wallet/presentation/home/home_navigator_impl.dart';
 import 'package:content_wallet/presentation/home/widgets/home_drawer.dart';
 import 'package:content_wallet/presentation/home/widgets/home_loading_screen.dart';
 import 'package:flutter/material.dart';
@@ -20,8 +21,9 @@ class HomePage extends StatelessWidget {
         return BlocProvider<HomeBloc>(
             create: (context) =>
                 HomeBloc(
+                    RepositoryProvider.of<SettingsRepository>(context),
                     RepositoryProvider.of<StoredTokenRepository>(context),
-                    HomeServiceImpl()
+                    HomeNavigatorImpl(context)
                 )..add(const HomeEvent.init()),
             child: BlocBuilder<HomeBloc, HomeState>(
                 builder: (context, state) {
